@@ -22,11 +22,12 @@ class PanelWidget extends StatelessWidget {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                ),
-                color: Colors.white),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+              color: Colors.white,
+            ),
             child: buildProfile(),
           ),
         ),
@@ -41,7 +42,10 @@ class PanelWidget extends StatelessWidget {
           padding: EdgeInsets.all(24),
           child: Column(
             children: [
-
+              PanelHeaderWidget(
+                user: user,
+                onClickedFollowing: onClickedFollowing,
+              ),
               SizedBox(height: 24),
               Expanded(child: buildProfileDetails(user)),
             ],

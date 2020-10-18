@@ -10,6 +10,8 @@ class HomeUIScreen extends StatefulWidget {
 
 class _HomeUIScreenState extends State<HomeUIScreen> {
   int index = 0;
+  final panelController = PanelController();
+
   @override
   Widget build(BuildContext context) {
     final user = users[index];
@@ -22,6 +24,11 @@ class _HomeUIScreenState extends State<HomeUIScreen> {
         actions: [IconButton(icon: Icon(Icons.close), onPressed: () {})],
       ),
       body: SlidingUpPanel(
+        controller: panelController,
+        minHeight: 150,
+        maxHeight: 350,
+        parallaxEnabled: true,
+        parallaxOffset: 0.55,
         color: Colors.transparent,
         body: PageView(
           children: users
@@ -33,7 +40,7 @@ class _HomeUIScreenState extends State<HomeUIScreen> {
         ),
         panelBuilder: (ScrollController scrollController) => PanelWidget(
           user: user,
-          onClickedPanel: (){},
+          onClickedPanel: panelController.open,
           onClickedFollowing: () => setState((){
             user.isFollowing = !user.isFollowing;
           })
