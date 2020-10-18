@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:october_2020_practise_6/custom_ui/views/home_ui_screen.dart';
 
 import 'package_widgets/package_widgets_exporter.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyCarouselSlider(),
+      home: HomeUIScreen(),
     );
   }
 }
