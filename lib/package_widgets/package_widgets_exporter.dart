@@ -1,0 +1,1 @@
+export 'my_carousel_slider.dart';
